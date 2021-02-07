@@ -2,7 +2,7 @@
 #include <fstream>
 using namespace std;
 
-bool BinaryStringWrite(string word, ofstream& out)
+bool BinaryStringWrite(string word, ofstream &out)
 {
 	if (word.empty())
 	{
@@ -21,7 +21,7 @@ bool BinaryStringWrite(string word, ofstream& out)
 	return true;
 }
 
-void displaysInfo(string word, ofstream& out)
+void displaysInfo(string word, ofstream &out)
 {
 	if (BinaryStringWrite(word, out))
 	{
@@ -36,7 +36,7 @@ void displaysInfo(string word, ofstream& out)
 int main()
 {
 	string word;
-  ofstream file("binary.txt");
+	ofstream file("binary.txt");
 
 	word = "1111";
 	displaysInfo(word, file);
