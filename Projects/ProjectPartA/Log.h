@@ -42,7 +42,7 @@ public:
 	}
 
 	// converts binaryArray to binaryString and records it
-	void recordBinaryArray(vector<bool> binaryArray)
+	void recordBinaryArray(vector<bool> &binaryArray)
 	{
 		string binaryString = "";
 		// converts binaryArray element-by-element
