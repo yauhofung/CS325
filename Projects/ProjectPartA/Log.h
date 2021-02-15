@@ -9,19 +9,17 @@ using namespace std;
 class Log
 {
 private:
-	int id;
 	ofstream file;
 
 public:
 	// constructor
 	Log()
 	{
-		id = 0;
 		file.open("records.txt");
 	}
 
 	// verifies and records binaryString to file
-	void recordBinaryString(string binaryString)
+	void recordBinaryString(string id, string binaryString)
 	{
 		// rejects empty strings
 		if (binaryString.empty())
@@ -37,12 +35,11 @@ public:
 			}
 		}
 		file << id << ' ' << binaryString << endl;
-		id++;
 		cout << "Recorded " << binaryString << ".\n";
 	}
 
 	// converts binaryArray to binaryString and records it
-	void recordBinaryArray(vector<bool> &binaryArray)
+	void recordBinaryArray(string id, vector<bool> &binaryArray)
 	{
 		string binaryString = "";
 		// converts binaryArray element-by-element
@@ -57,7 +54,7 @@ public:
 				binaryString += '0';
 			}
 		}
-		recordBinaryString(binaryString);
+		recordBinaryString(id, binaryString);
 	}
 
 	// destructor
