@@ -66,7 +66,7 @@ public:
 		// checks for invalid data index
 		if (dataIndex < 0 || dataIndex >= SIZE)
 		{
-			throw "invalid data index";
+			throw out_of_range("invalid data index");
 		}
 		return data[dataIndex];
 	}
@@ -76,7 +76,7 @@ public:
 		// checks for invalid address index
 		if (addressIndex < 0 || addressIndex >= SIZE)
 		{
-			throw "invalid address index";
+			throw out_of_range("invalid address index");
 		}
 		return address[addressIndex];
 	}
@@ -86,7 +86,7 @@ public:
 		// checks for invalid control index
 		if (controlIndex < 0 || controlIndex >= SIZE)
 		{
-			throw "invalid control index";
+			throw out_of_range("invalid control index");
 		}
 		return control[controlIndex];
 	}
