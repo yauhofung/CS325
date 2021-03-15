@@ -89,6 +89,10 @@ public:
 		{
 			return false;
 		}
+		if (file.peek() == EOF)
+		{
+			return false;
+		}
 		string line;
 		// checks file line-by-line
 		while (getline(file, line))
