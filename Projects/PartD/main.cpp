@@ -2,17 +2,17 @@
 #include "Helper.h"
 using namespace std;
 
+const string HEXFILENAME = "hex.txt";
+
 int main()
 {
-	const string hexFilename = "hex.txt";
-
-	if (ProgramConverter(hexFilename))
+	if (ProgramConverter(HEXFILENAME))
 	{
-		cout << "File converted.\n";
+		cout << "Created " << BINARYFILENAME << " from " << HEXFILENAME << ".\n";
 	}
 	else
 	{
-		cout << "Invalid hexadecimal string detected.\n";
+		cout << "Detected invalid hexadecimal string in " << HEXFILENAME << ".\n";
 	}
 
 	return 0;

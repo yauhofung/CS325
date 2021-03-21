@@ -2,7 +2,9 @@
 #include <fstream>
 using namespace std;
 
-// if hexFilename contains valid hexadecimal strings, create a binary version of hexFilename and return true
+const string BINARYFILENAME = "binary.txt";
+
+// if hexFilename contains valid hexadecimal strings, create a binary copy of hexFilename and return true
 // otherwise, return false
 bool ProgramConverter(string hexFilename)
 {
@@ -94,7 +96,7 @@ bool ProgramConverter(string hexFilename)
 	}
 	hexFile.close();
 
-	ofstream binaryFile("binary.txt");
+	ofstream binaryFile(BINARYFILENAME);
 	binaryFile << binaryString;
 	binaryFile.close();
 
