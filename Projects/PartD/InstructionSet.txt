@@ -1,0 +1,5 @@
+Instruction Type | Opcode   | Symbolic Representation | Description
+Status           | 00000000 | FAIL                    | Read/write operation failed.
+Status           | 00000001 | SUCCESS                 | Read/write operation successful.
+Data Transfer    | 00000010 | Write()                 | Write data from Bus to txt file at address.
+Data Transfer    | 00000011 | Read()                  | Read data from txt file at address to Bus.
