@@ -7,10 +7,10 @@
 using namespace std;
 
 // control signals
-const string FAIL = "00000000";
-const string SUCCESS = "00000001";
-const string WRITE = "00000010";
-const string READ = "00000011";
+const string FAIL = "00010000";
+const string SUCCESS = "00010001";
+const string READ = "00100000";
+const string WRITE = "00100001";
 
 class Memory
 {
@@ -24,19 +24,6 @@ private:
 	// overloaded assignment operator
 	Memory &operator=(const Memory &rhs);
 
-	// writes data to file at address
-	void Write()
-	{
-		fstream file(filename);
-
-		// sets output position at specified address
-		file.seekp(busPtr->getAddressInt() * (DATA_SIZE + 2));
-
-		file << busPtr->getDataString();
-
-		file.close();
-	}
-
 	// reads data to bus at address
 	void Read()
 	{
@@ -48,6 +35,19 @@ private:
 		string dataString;
 		file >> dataString;
 		busPtr->setDataString(dataString);
+
+		file.close();
+	}
+
+	// writes data to file at address
+	void Write()
+	{
+		fstream file(filename);
+
+		// sets output position at specified address
+		file.seekp(busPtr->getAddressInt() * (DATA_SIZE + 2));
+
+		file << busPtr->getDataString();
 
 		file.close();
 	}
@@ -89,6 +89,7 @@ public:
 		{
 			return false;
 		}
+		// checks if file is empty
 		if (file.peek() == EOF)
 		{
 			return false;
@@ -116,17 +117,17 @@ public:
 		return true;
 	}
 
-	// calls Write() or Read() based on the control signal
+	// calls Read() or Write() based on the control signal
 	void Process()
 	{
-		if (Valid() && busPtr->getControlString() == WRITE)
-		{
-			Write();
-			busPtr->setControlString(SUCCESS);
-		}
-		else if (Valid() && busPtr->getControlString() == READ)
+		if (Valid() && busPtr->getControlString() == READ)
 		{
 			Read();
+			busPtr->setControlString(SUCCESS);
+		}
+		else if (Valid() && busPtr->getControlString() == WRITE)
+		{
+			Write();
 			busPtr->setControlString(SUCCESS);
 		}
 		else
