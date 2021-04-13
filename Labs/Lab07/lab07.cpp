@@ -3,6 +3,7 @@
 using namespace std;
 
 //define function below here
+// returns false if infixString is invalid, true otherwise
 bool verifyInfixString(string infixString)
 {
 	// checks length
@@ -33,6 +34,7 @@ bool verifyInfixString(string infixString)
 	return true;
 }
 
+// returns exp in prefix notation
 string ToPrefix(string exp)
 {
 	string prefixString = "";
