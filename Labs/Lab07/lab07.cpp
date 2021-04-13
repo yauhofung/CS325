@@ -3,6 +3,7 @@
 using namespace std;
 
 //define function below here
+
 // returns false if infixString is invalid, true otherwise
 bool verifyInfixString(string infixString)
 {
@@ -51,22 +52,25 @@ string ToPrefix(string exp)
 	}
 	return prefixString;
 }
+
 //define function above here
 
 int main()
 {
+	// valid infix strings
 	cout << ToPrefix("a + z") << endl;
 	cout << ToPrefix("b - y") << endl;
 	cout << ToPrefix("c * x") << endl;
 	cout << ToPrefix("d / w") << endl;
 	cout << ToPrefix("e % v") << endl;
 
-	cout << "Invalid string 1: " << ToPrefix("123456") << endl;
-	cout << "Invalid string 2: " << ToPrefix("a b c") << endl;
-	cout << "Invalid string 3: " << ToPrefix("A + z") << endl;
-	cout << "Invalid string 4: " << ToPrefix("a + Z") << endl;
-	cout << "Invalid string 5: " << ToPrefix("a_+ Z") << endl;
-	cout << "Invalid string 6: " << ToPrefix("a +_Z") << endl;
+	// invalid infix strings
+	cout << "String 1: " << ToPrefix("123456") << endl;
+	cout << "String 2: " << ToPrefix("a b c") << endl;
+	cout << "String 3: " << ToPrefix("A + z") << endl;
+	cout << "String 4: " << ToPrefix("a + Z") << endl;
+	cout << "String 5: " << ToPrefix("a_+ Z") << endl;
+	cout << "String 6: " << ToPrefix("a +_Z") << endl;
 
 	return 0;
 }
