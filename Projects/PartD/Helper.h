@@ -1,3 +1,6 @@
+#ifndef HELPER_H
+#define HELPER_H
+
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -102,3 +105,5 @@ bool ProgramConverter(string hexFilename)
 
 	return true;
 }
+
+#endif
