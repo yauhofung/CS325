@@ -15,7 +15,7 @@ public:
 	// constructor
 	Log()
 	{
-		file.open("records.txt");
+		file.open("records.txt", ios_base::app);
 	}
 
 	// verifies and records binaryString to file
@@ -35,7 +35,6 @@ public:
 			}
 		}
 		file << id << ' ' << binaryString << endl;
-		cout << "Recorded " << binaryString << ".\n";
 	}
 
 	// converts binaryArray to binaryString and records it

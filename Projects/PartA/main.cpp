@@ -25,6 +25,5 @@ int main()
 	vector<bool> array3 = {false, true, false, true, false};
 	log.recordBinaryArray("000000001001", array3);
 
-	cout << "Done.\n";
 	return 0;
 }
