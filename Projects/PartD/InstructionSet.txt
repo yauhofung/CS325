@@ -2,17 +2,13 @@ Opcode | Description
 00     | Terminate program.
 10     | Operation failed.
 11     | Operation succeeded.
-20     | Read from M(X) to Bus data.
-21     | Write from Bus data to M(X).
-30     | Add Bus data by M(X) and store result as Bus data.
-31     | Subtract Bus data by M(X) and store result as Bus data.
-32     | Multiply Bus data by M(X) and store result as Bus data.
-33     | Divide Bus data by M(X) and store result as Bus data.
-40     | Set control from 1st quarter of M(X).
-41     | Set control from 2nd quarter of M(X).
-42     | Set control from 3rd quarter of M(X).
-43     | Set control from 4th quarter of M(X).
-50     | If Bus data % 4 == 0, process control from 1st quarter of M(X).
-51     | If Bus data % 4 == 1, process control from 2nd quarter of M(X).
-52     | If Bus data % 4 == 2, process control from 3rd quarter of M(X).
-53     | If Bus data % 4 == 3, process control from 4th quarter of M(X).
+20     | Read from M(X) to accumulator.
+21     | Write from accumulator to M(X).
+30     | Add accumulator by M(X) and store result in accumulator.
+31     | Subtract accumulator by M(X) and store result in accumulator.
+32     | Multiply accumulator by M(X) and store result in accumulator.
+33     | Divide accumulator by M(X) and store result in accumulator.
+40     | Take next instruction from 1st half of M(X).
+41     | Take next instruction from 2nd half of M(X).
+50     | If accumulator is odd, take next instruction from 1st half of M(X).
+51     | If accumulator is even, take next instruction from 2nd half of M(X).
