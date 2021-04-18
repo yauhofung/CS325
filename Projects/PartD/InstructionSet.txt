@@ -8,7 +8,5 @@ Opcode | Description
 31     | Subtract accumulator by M(X) and store result in accumulator.
 32     | Multiply accumulator by M(X) and store result in accumulator.
 33     | Divide accumulator by M(X) and store result in accumulator.
-40     | Take next instruction from 1st half of M(X).
-41     | Take next instruction from 2nd half of M(X).
-50     | If accumulator is odd, take next instruction from 1st half of M(X).
-51     | If accumulator is even, take next instruction from 2nd half of M(X).
+40     | Take next instruction from M(X).
+50     | If accumulator is even, take next instruction from M(X).
