@@ -1,13 +1,11 @@
 Opcode | Description
 00     | Terminate program.
-10     | Operation failed.
-11     | Operation succeeded.
-20     | Read from M(X) to accumulator.
-21     | Write from accumulator to M(X).
-30     | Add M(X) by M(Y) and store result in accumulator.
-31     | Subtract M(X) by M(Y) and store result in accumulator.
-32     | Multiply M(X) by M(Y) and store result in accumulator.
-33     | Divide M(X) by M(Y) and store result in accumulator.
+20     | Transfer contents from M(X) to AC.
+21     | Transfer contents from AC to M(X).
+30     | Add M(X) by M(Y) and store result in AC.
+31     | Subtract M(X) by M(Y) and store result in AC.
+32     | Multiply M(X) by M(Y) and store result in AC.
+33     | Divide M(X) by M(Y) and store result in AC.
 40     | Take next instruction from M(X).
 41     | Take next instruction from M(Y).
-50     | If accumulator is even, take next instruction from M(X). Otherwise, take next instruction from M(Y).
+50     | If AC is even, take next instruction from M(X). Otherwise, take next instruction from M(Y).
