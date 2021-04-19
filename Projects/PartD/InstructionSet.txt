@@ -4,9 +4,10 @@ Opcode | Description
 11     | Operation succeeded.
 20     | Read from M(X) to accumulator.
 21     | Write from accumulator to M(X).
-30     | Add accumulator by M(X) and store result in accumulator.
-31     | Subtract accumulator by M(X) and store result in accumulator.
-32     | Multiply accumulator by M(X) and store result in accumulator.
-33     | Divide accumulator by M(X) and store result in accumulator.
+30     | Add M(X) by M(Y) and store result in accumulator.
+31     | Subtract M(X) by M(Y) and store result in accumulator.
+32     | Multiply M(X) by M(Y) and store result in accumulator.
+33     | Divide M(X) by M(Y) and store result in accumulator.
 40     | Take next instruction from M(X).
-50     | If accumulator is even, take next instruction from M(X).
+41     | Take next instruction from M(Y).
+50     | If accumulator is even, take next instruction from M(X). Otherwise, take next instruction from M(Y).
