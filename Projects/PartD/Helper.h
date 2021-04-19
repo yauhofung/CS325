@@ -7,8 +7,7 @@ using namespace std;
 
 const string BINARYFILENAME = "binary.txt";
 
-// if hexFilename contains valid hexadecimal strings, create a binary copy of hexFilename and return true
-// otherwise, return false
+// creates a binary copy of hexFilename and returns true if hexFilename contains valid hexadecimal strings, returns false otherwise
 bool ProgramConverter(string hexFilename)
 {
 	ifstream hexFile(hexFilename);
