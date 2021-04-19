@@ -37,27 +37,27 @@ int main()
 
 	// reads from line 1
 	bus.setAddressString("000000000000");
-	bus.setControlString(MEMORY_READ);
+	bus.setControlString(READ);
 	memory.Process();
 	cout << bus << endl;
 
 	// reads from line 4095
 	bus.setAddressString("111111111110");
-	bus.setControlString(MEMORY_READ);
+	bus.setControlString(READ);
 	memory.Process();
 	cout << bus << endl;
 
 	// writes to line 2
 	bus.setDataString("11111111111111111111111111111111");
 	bus.setAddressString("000000000001");
-	bus.setControlString(MEMORY_WRITE);
+	bus.setControlString(WRITE);
 	memory.Process();
 	cout << bus << endl;
 
 	// writes to line 4096
 	bus.setDataString("11111111000000001111111100000000");
 	bus.setAddressString("111111111111");
-	bus.setControlString(MEMORY_WRITE);
+	bus.setControlString(WRITE);
 	memory.Process();
 	cout << bus << endl;
 
