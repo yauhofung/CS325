@@ -2,10 +2,9 @@ Opcode | Symbol  | Description
 00     | END     | Terminate program.
 10     | LOAD    | Transfer contents from M(X) to AC.
 11     | SAVE    | Transfer contents from AC to M(X).
-20     | ADD     | Add M(X) by M(Y) and store result in AC.
-21     | SUB     | Subtract M(X) by M(Y) and store result in AC.
-22     | MUL     | Multiply M(X) by M(Y) and store result in AC.
-23     | DIV     | Divide M(X) by M(Y) and store result in AC.
+20     | ADD     | Add AC by M(X) and store result in AC.
+21     | SUB     | Subtract AC by M(X) and store result in AC.
+22     | MUL     | Multiply AC by M(X) and store result in AC.
+23     | DIV     | Divide AC by M(X) and store result in AC.
 30     | GO_TO_X | Take next instruction from M(X).
-31     | GO_TO_Y | Take next instruction from M(Y).
-40     | GO_TO   | If AC is odd, take next instruction from M(X). Otherwise, take next instruction from M(Y).
+40     | GO_TO   | If AC is odd, take next instruction from M(X).

@@ -6,6 +6,8 @@
 #include <vector>
 using namespace std;
 
+const string LOG_FILENAME = "records.txt";
+
 class Log
 {
 private:
@@ -15,7 +17,7 @@ public:
 	// constructor
 	Log()
 	{
-		file.open("records.txt", ios_base::app);
+		file.open(LOG_FILENAME, ios_base::app);
 	}
 
 	// verifies and records binaryString to file

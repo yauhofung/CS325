@@ -6,6 +6,8 @@
 #include <fstream>
 using namespace std;
 
+const string MEMORY_FILENAME = "memory.txt";
+
 // control signals
 const string SUCCEED = "00000000";
 const string FAIL = "00000001";

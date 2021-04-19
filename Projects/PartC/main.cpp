@@ -6,15 +6,12 @@
 #include <cmath>
 using namespace std;
 
-// memory filename
-const string FILENAME = "memory.txt";
-
 // generates memory file with random data
 void generateFile()
 {
 	srand(time(NULL));
 
-	ofstream file(FILENAME);
+	ofstream file(MEMORY_FILENAME);
 	// generates file line-by-line
 	for (int i = 0; i < pow(2, ADDRESS_SIZE); i++)
 	{
@@ -33,7 +30,7 @@ int main()
 	generateFile();
 
 	Bus bus;
-	Memory memory(&bus, FILENAME);
+	Memory memory(&bus, MEMORY_FILENAME);
 
 	// reads from line 1
 	bus.setAddressString("000000000000");
