@@ -7,10 +7,10 @@
 using namespace std;
 
 // control signals
-const string FAIL = "00010000";
-const string SUCCESS = "00010001";
-const string READ = "00100000";
-const string WRITE = "00100001";
+const string MEMORY_SUCCESS = "00000000";
+const string MEMORY_FAIL = "00000001";
+const string MEMORY_READ = "00010000";
+const string MEMORY_WRITE = "00010001";
 
 class Memory
 {
@@ -120,19 +120,19 @@ public:
 	// calls Read() or Write() based on the control signal
 	void Process()
 	{
-		if (Valid() && busPtr->getControlString() == READ)
+		if (Valid() && busPtr->getControlString() == MEMORY_READ)
 		{
 			Read();
-			busPtr->setControlString(SUCCESS);
+			busPtr->setControlString(MEMORY_SUCCESS);
 		}
-		else if (Valid() && busPtr->getControlString() == WRITE)
+		else if (Valid() && busPtr->getControlString() == MEMORY_WRITE)
 		{
 			Write();
-			busPtr->setControlString(SUCCESS);
+			busPtr->setControlString(MEMORY_SUCCESS);
 		}
 		else
 		{
-			busPtr->setControlString(FAIL);
+			busPtr->setControlString(MEMORY_FAIL);
 		}
 	}
 
