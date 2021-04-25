@@ -6,5 +6,8 @@ Opcode | Symbol  | Description
 21     | SUB     | Subtract AC by M(X) and store result in AC.
 22     | MUL     | Multiply AC by M(X) and store result in AC.
 23     | DIV     | Divide AC by M(X) and store result in AC.
-30     | GO_TO_X | Take next instruction from M(X).
-40     | GO_TO   | If AC is odd, take next instruction from M(X).
+30     | NOT     | Perform logical NOT on AC and store result in AC.
+31     | OR      | Perform logical OR on AC with M(X) and store result in AC.
+32     | AND     | Perform logical AND on AC with M(X) and store result in AC.
+40     | GO_TO_X | Take next instruction from M(X).
+41     | GO_TO   | Take next instruction from M(X) if AC is odd.

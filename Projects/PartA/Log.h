@@ -17,7 +17,7 @@ public:
 	// constructor
 	Log()
 	{
-		file.open(LOG_FILENAME, ios_base::app);
+		file.open(LOG_FILENAME);
 	}
 
 	// verifies and records binaryString to file

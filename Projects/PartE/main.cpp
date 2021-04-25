@@ -11,23 +11,21 @@ int main()
 	Memory memory(&bus, MEMORY_FILENAME);
 	Processor processor(&bus, &log);
 
-	bus.setControlString(END_STRING);
+	// TODO: addition result fix
+
+	// adds line 1 by line 3 and stores result in AC
+	bus.setAddressString("000000000000");
+	bus.setControlString(MEMORY_READ);
+	memory.Process();
+
+	bus.setControlString(PROCESSOR_LOAD);
 	processor.Process();
-	bus.setControlString(LOAD_STRING);
-	processor.Process();
-	bus.setControlString(SAVE_STRING);
-	processor.Process();
-	bus.setControlString(ADD_STRING);
-	processor.Process();
-	bus.setControlString(SUB_STRING);
-	processor.Process();
-	bus.setControlString(MUL_STRING);
-	processor.Process();
-	bus.setControlString(DIV_STRING);
-	processor.Process();
-	bus.setControlString(GO_TO_X_STRING);
-	processor.Process();
-	bus.setControlString(GO_TO_STRING);
+
+	bus.setAddressString("000000000010");
+	bus.setControlString(MEMORY_READ);
+	memory.Process();
+
+	bus.setControlString(PROCESSOR_ADD);
 	processor.Process();
 
 	return 0;
