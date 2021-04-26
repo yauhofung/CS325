@@ -110,7 +110,7 @@ private:
 	void incrementProgramCounter()
 	{
 		programCounter = toBinaryVector(toDecimalInt(programCounter) + 1, ADDRESS_SIZE);
-		logRegister("PC", programCounter);
+		logRegister(" PC", programCounter);
 	}
 
 	// records register to logger
@@ -145,7 +145,7 @@ private:
 			internalBus.getControlBit(i) = externalBus->getControlBit(i);
 			instructionRegister[i] = externalBus->getControlBit(i);
 		}
-		logRegister("IR", instructionRegister);
+		logRegister(" IR", instructionRegister);
 
 		// decodes instruction
 		if (instructionRegister == END)
@@ -155,7 +155,7 @@ private:
 		else if (instructionRegister == LOAD)
 		{
 			accumulator = memoryBufferRegister;
-			logRegister("AC", accumulator);
+			logRegister(" AC", accumulator);
 			incrementProgramCounter();
 		}
 		else if (instructionRegister == SAVE)
@@ -173,14 +173,14 @@ private:
 		else if (instructionRegister == GO_TO_X)
 		{
 			programCounter = memoryAddressRegister;
-			logRegister("PC", programCounter);
+			logRegister(" PC", programCounter);
 		}
 		else if (instructionRegister == GO_TO)
 		{
 			if (accumulator.back())
 			{
 				programCounter = memoryAddressRegister;
-				logRegister("PC", programCounter);
+				logRegister(" PC", programCounter);
 			}
 			else
 			{
@@ -241,7 +241,7 @@ private:
 			throw invalid_argument("invalid ALU operation");
 		}
 
-		logRegister("AC", accumulator);
+		logRegister(" AC", accumulator);
 		incrementProgramCounter();
 	}
 
