@@ -61,7 +61,7 @@ private:
 	// returns binaryVector as decimal integer
 	int toDecimalInt(vector<bool> binaryVector)
 	{
-		int decimalInt;
+		int decimalInt = 0;
 
 		// reads binaryVector
 		for (int i = 0; i < binaryVector.size(); i++)

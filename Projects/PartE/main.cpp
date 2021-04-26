@@ -11,8 +11,6 @@ int main()
 	Memory memory(&bus, MEMORY_FILENAME);
 	Processor processor(&bus, &log);
 
-	// TODO: addition result fix
-
 	// adds line 1 by line 3 and stores result in AC
 	bus.setAddressString("000000000000");
 	bus.setControlString(MEMORY_READ);
