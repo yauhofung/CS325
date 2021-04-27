@@ -41,35 +41,35 @@ e. 1111111101101101
 
 3.
 a. 20
- Sign-Magnitude: 00010100
-Twos-Complement: 00010100
+SM: 00010100
+TC: 00010100
 -20
- Sign-Magnitude: 10010100
-Twos-Complement: 11101100
+SM: 10010100
+TC: 11101100
 b. -71
- Sign-Magnitude: 11000111
-Twos-Complement: 10111001
+SM: 11000111
+TC: 10111001
 71
- Sign-Magnitude: 01000111
-Twos-Complement: 01000111
+SM: 01000111
+TC: 01000111
 c. -68
- Sign-Magnitude: 10001010
-Twos-Complement: 11110110
+SM: 10001010
+TC: 11110110
 68
- Sign-Magnitude: 00001010
-Twos-Complement: 00001010
+SM: 00001010
+TC: 00001010
 d. 91
- Sign-Magnitude: 01011011
-Twos-Complement: 01011011
+SM: 01011011
+TC: 01011011
 -91
- Sign-Magnitude: 11011011
-Twos-Complement: 10100101
+SM: 11011011
+TC: 10100101
 e. 114
- Sign-Magnitude: 01110010
-Twos-Complement: 01110010
+SM: 01110010
+TC: 01110010
 -114
- Sign-Magnitude: 11110010
-Twos-Complement: 10001110
+SM: 11110010
+TC: 10001110
 
 4.
 a. Addition
