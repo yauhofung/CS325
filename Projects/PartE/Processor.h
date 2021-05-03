@@ -17,6 +17,7 @@ const string PROCESSOR_ADD = "00100000";
 const string PROCESSOR_SUB = "00100001";
 const string PROCESSOR_MUL = "00100010";
 const string PROCESSOR_DIV = "00100011";
+const string PROCESSOR_MOD = "00100100";
 const string PROCESSOR_NOT = "00110000";
 const string PROCESSOR_OR = "00110001";
 const string PROCESSOR_AND = "00110010";
@@ -30,6 +31,7 @@ const vector<bool> ADD({false, false, true, false, false, false, false, false});
 const vector<bool> SUB({false, false, true, false, false, false, false, true});
 const vector<bool> MUL({false, false, true, false, false, false, true, false});
 const vector<bool> DIV({false, false, true, false, false, false, true, true});
+const vector<bool> MOD({false, false, true, false, false, true, false, false});
 const vector<bool> NOT({false, false, true, true, false, false, false, false});
 const vector<bool> OR({false, false, true, true, false, false, false, true});
 const vector<bool> AND({false, false, true, true, false, false, true, false});
@@ -166,7 +168,7 @@ private:
 			}
 			incrementProgramCounter();
 		}
-		else if (instructionRegister == ADD || instructionRegister == SUB || instructionRegister == MUL || instructionRegister == DIV || instructionRegister == NOT || instructionRegister == OR || instructionRegister == AND)
+		else if (instructionRegister == ADD || instructionRegister == SUB || instructionRegister == MUL || instructionRegister == DIV || instructionRegister == MOD || instructionRegister == NOT || instructionRegister == OR || instructionRegister == AND)
 		{
 			ALU();
 		}
@@ -177,7 +179,7 @@ private:
 		}
 		else if (instructionRegister == GO_TO)
 		{
-			if (accumulator.back())
+			if (toDecimalInt(accumulator))
 			{
 				programCounter = memoryAddressRegister;
 				logRegister(" PC", programCounter);
@@ -211,6 +213,10 @@ private:
 		else if (internalBus.getControlString() == PROCESSOR_DIV)
 		{
 			accumulator = toBinaryVector(toDecimalInt(accumulator) / toDecimalInt(memoryBufferRegister), DATA_SIZE);
+		}
+		else if (internalBus.getControlString() == PROCESSOR_MOD)
+		{
+			accumulator = toBinaryVector(toDecimalInt(accumulator) % toDecimalInt(memoryBufferRegister), DATA_SIZE);
 		}
 		else if (internalBus.getControlString() == PROCESSOR_NOT)
 		{
