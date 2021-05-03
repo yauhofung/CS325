@@ -29,8 +29,9 @@ int main()
 {
 	generateFile();
 
+	Log log;
 	Bus bus;
-	Memory memory(&bus, MEMORY_FILENAME);
+	Memory memory(&log, &bus, MEMORY_FILENAME);
 
 	// reads from line 1
 	bus.setAddressString("000000000000");

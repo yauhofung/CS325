@@ -1,6 +1,7 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 
+#include "../PartA/Log.h"
 #include "../PartB/Bus.h"
 #include <iostream>
 #include <fstream>
@@ -17,6 +18,7 @@ const string MEMORY_WRITE = "00010001";
 class Memory
 {
 private:
+	Log *logPtr;
 	Bus *busPtr;
 	string filename;
 
@@ -58,16 +60,23 @@ public:
 	// default constructor
 	Memory()
 	{
+		logPtr = NULL;
 		busPtr = NULL;
 		filename = "";
 	}
 	// overloaded constructor
-	Memory(Bus *bus, string file)
+	Memory(Log *log, Bus *bus, string file)
 	{
+		logPtr = log;
 		busPtr = bus;
 		filename = file;
 	}
 
+	// sets logPtr to log
+	void setLog(Log &log)
+	{
+		logPtr = &log;
+	}
 	// sets busPtr to bus
 	void setBus(Bus &bus)
 	{
@@ -79,10 +88,10 @@ public:
 		filename = file;
 	}
 
-	// returns true if a Bus is assigned and the file is valid
+	// returns true if a Log is assigned, a Bus is assigned, and the file is valid
 	bool Valid()
 	{
-		if (busPtr == NULL)
+		if (logPtr == NULL || busPtr == NULL)
 		{
 			return false;
 		}
@@ -91,7 +100,6 @@ public:
 		{
 			return false;
 		}
-		// checks if file is empty
 		if (file.peek() == EOF)
 		{
 			return false;
