@@ -8,8 +8,8 @@ int main()
 {
 	Log log;
 	Bus bus;
-	Memory memory(&log, &bus, MEMORY_FILENAME);
-	Processor processor(&bus, &log);
+	Memory memory(log, bus, MEMORY_FILENAME);
+	Processor processor(bus, log);
 
 	// adds line 1 by line 3 and stores result in line 8
 	bus.setAddressString("000000000000");

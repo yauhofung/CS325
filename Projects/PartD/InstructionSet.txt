@@ -1,13 +1,13 @@
-Opcode | Symbol  | Description
-00     | END     | Terminate program.
-10     | LOAD    | Transfer contents from M(X) to AC.
-11     | SAVE    | Transfer contents from AC to M(X).
-20     | ADD     | Add AC by M(X) and store result in AC.
-21     | SUB     | Subtract AC by M(X) and store result in AC.
-22     | MUL     | Multiply AC by M(X) and store result in AC.
-23     | DIV     | Divide AC by M(X) and store result in AC.
-30     | NOT     | Perform logical NOT on AC and store result in AC.
-31     | OR      | Perform logical OR on AC with M(X) and store result in AC.
-32     | AND     | Perform logical AND on AC with M(X) and store result in AC.
-40     | GO_TO_X | Take next instruction from M(X).
-41     | GO_TO   | Take next instruction from M(X) if AC is odd.
+Opcode   | Symbol  | Description
+00000000 | END     | Terminate program.
+00010000 | LOAD    | Transfer contents from M(X) to AC.
+00010001 | SAVE    | Transfer contents from AC to M(X).
+00100000 | ADD     | Add AC by M(X) and store result in AC.
+00100001 | SUB     | Subtract AC by M(X) and store result in AC.
+00100010 | MUL     | Multiply AC by M(X) and store result in AC.
+00100011 | DIV     | Divide AC by M(X) and store result in AC.
+00110000 | NOT     | Perform logical NOT on AC and store result in AC.
+00110001 | OR      | Perform logical OR on AC with M(X) and store result in AC.
+00110010 | AND     | Perform logical AND on AC with M(X) and store result in AC.
+01000000 | GO_TO_X | Take next instruction from M(X).
+01000001 | GO_TO   | Take next instruction from M(X) if AC is odd.

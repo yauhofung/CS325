@@ -286,10 +286,10 @@ public:
 	}
 
 	// overloaded constructor
-	Processor(Bus *bus, Log *log)
+	Processor(Bus &bus, Log &log)
 	{
-		externalBus = bus;
-		logger = log;
+		externalBus = &bus;
+		logger = &log;
 
 		// assigns zeroes to memoryBufferRegister and accumulator
 		for (int i = 0; i < DATA_SIZE; i++)
@@ -313,15 +313,35 @@ public:
 	}
 
 	// sets externalBus pointer
-	void setBus(Bus *bus)
+	void setBus(Bus &bus)
 	{
-		externalBus = bus;
+		externalBus = &bus;
 	}
 
 	// sets logger pointer
-	void setLogger(Log *log)
+	void setLogger(Log &log)
 	{
-		logger = log;
+		logger = &log;
+	}
+
+	// returns programCounter as a binary string
+	string getProgramCounter()
+	{
+		string programCounterString = "";
+
+		for (bool bit : programCounter)
+		{
+			if (bit)
+			{
+				programCounterString += '1';
+			}
+			else
+			{
+				programCounterString += '0';
+			}
+		}
+
+		return programCounterString;
 	}
 
 	// calls Valid() then Control() if internal control bus contains PROCESSOR_SUCCESS

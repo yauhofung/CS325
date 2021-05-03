@@ -65,10 +65,10 @@ public:
 		filename = "";
 	}
 	// overloaded constructor
-	Memory(Log *log, Bus *bus, string file)
+	Memory(Log &log, Bus &bus, string file)
 	{
-		logPtr = log;
-		busPtr = bus;
+		logPtr = &log;
+		busPtr = &bus;
 		filename = file;
 	}
 
