@@ -6,7 +6,7 @@
 #include <vector>
 using namespace std;
 
-const string LOG_FILENAME = "records.txt";
+const string LOG_FILENAME = "Log.txt";
 
 class Log
 {
