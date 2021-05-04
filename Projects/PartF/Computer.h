@@ -89,6 +89,16 @@ public:
 				systemBus.setControlString(MEMORY_READ);
 				memoryPtr->Process();
 
+				if (opcode == PROCESSOR_PULL)
+				{
+					for (int i = DATA_SIZE - ADDRESS_SIZE; i < DATA_SIZE; i++)
+					{
+						systemBus.getAddressBit(i - DATA_SIZE + ADDRESS_SIZE) = systemBus.getDataBit(i);
+					}
+					systemBus.setControlString(MEMORY_READ);
+					memoryPtr->Process();
+				}
+
 				systemBus.setControlString(opcode);
 				processorPtr->Process();
 

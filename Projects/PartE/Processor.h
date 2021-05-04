@@ -13,6 +13,7 @@ const string PROCESSOR_FAILURE = "00000001";
 const string PROCESSOR_END = "00000000";
 const string PROCESSOR_LOAD = "00010000";
 const string PROCESSOR_SAVE = "00010001";
+const string PROCESSOR_PULL = "00010010";
 const string PROCESSOR_ADD = "00100000";
 const string PROCESSOR_SUB = "00100001";
 const string PROCESSOR_MUL = "00100010";
@@ -27,6 +28,7 @@ const string PROCESSOR_GO_TO = "01000001";
 const vector<bool> END({false, false, false, false, false, false, false, false});
 const vector<bool> LOAD({false, false, false, true, false, false, false, false});
 const vector<bool> SAVE({false, false, false, true, false, false, false, true});
+const vector<bool> PULL({false, false, false, true, false, false, true, false});
 const vector<bool> ADD({false, false, true, false, false, false, false, false});
 const vector<bool> SUB({false, false, true, false, false, false, false, true});
 const vector<bool> MUL({false, false, true, false, false, false, true, false});
@@ -154,7 +156,7 @@ private:
 		{
 			return;
 		}
-		else if (instructionRegister == LOAD)
+		else if (instructionRegister == LOAD || instructionRegister == PULL)
 		{
 			accumulator = memoryBufferRegister;
 			logRegister(" AC", accumulator);

@@ -2,6 +2,7 @@ Opcode   | Symbol  | Description
 00000000 | END     | Terminate program.
 00010000 | LOAD    | Transfer contents from M(X) to AC.
 00010001 | SAVE    | Transfer contents from AC to M(X).
+00010010 | PULL    | Transfer contents from M(M(X)) to AC.
 00100000 | ADD     | Perform addition on AC with M(X) and store result in AC.
 00100001 | SUB     | Perform subtraction on AC with M(X) and store result in AC.
 00100010 | MUL     | Perform multiplication on AC with M(X) and store result in AC.
@@ -11,4 +12,4 @@ Opcode   | Symbol  | Description
 00110001 | OR      | Perform logical OR on AC with M(X) and store result in AC.
 00110010 | AND     | Perform logical AND on AC with M(X) and store result in AC.
 01000000 | GO_TO_X | Take next instruction from M(X).
-01000001 | GO_TO   | Take next instruction from M(X) if AC equals zero.
+01000001 | GO_TO   | Take next instruction from M(X) if AC is nonzero.
