@@ -64,6 +64,7 @@ public:
 			memoryPtr->setBus(systemBus);
 			processorPtr->setBus(systemBus);
 
+			// executes code in memory until halt or error
 			while (true)
 			{
 				systemBus.setAddressString(processorPtr->getProgramCounter());
@@ -91,6 +92,7 @@ public:
 
 				if (opcode == PROCESSOR_PULL)
 				{
+					// reads address at M(X)
 					for (int i = DATA_SIZE - ADDRESS_SIZE; i < DATA_SIZE; i++)
 					{
 						systemBus.getAddressBit(i - DATA_SIZE + ADDRESS_SIZE) = systemBus.getDataBit(i);
