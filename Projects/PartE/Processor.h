@@ -114,7 +114,7 @@ private:
 	void incrementProgramCounter()
 	{
 		programCounter = toBinaryVector(toDecimalInt(programCounter) + 1, ADDRESS_SIZE);
-		logRegister(" PC", programCounter);
+		logRegister("   PC", programCounter);
 	}
 
 	// records register to logger
@@ -134,14 +134,14 @@ private:
 		{
 			memoryBufferRegister[i] = externalBus->getDataBit(i);
 		}
-		logRegister("MBR", memoryBufferRegister);
+		logRegister("  MBR", memoryBufferRegister);
 
 		// fetches address from externalBus
 		for (int i = 0; i < ADDRESS_SIZE; i++)
 		{
 			memoryAddressRegister[i] = externalBus->getAddressBit(i);
 		}
-		logRegister("MAR", memoryAddressRegister);
+		logRegister("  MAR", memoryAddressRegister);
 
 		// fetches control from externalBus
 		for (int i = 0; i < CONTROL_SIZE; i++)
@@ -149,7 +149,7 @@ private:
 			internalBus.getControlBit(i) = externalBus->getControlBit(i);
 			instructionRegister[i] = externalBus->getControlBit(i);
 		}
-		logRegister(" IR", instructionRegister);
+		logRegister("   IR", instructionRegister);
 
 		// decodes instruction
 		if (instructionRegister == END)
@@ -159,7 +159,7 @@ private:
 		else if (instructionRegister == LOAD || instructionRegister == PULL)
 		{
 			accumulator = memoryBufferRegister;
-			logRegister(" AC", accumulator);
+			logRegister("   AC", accumulator);
 			incrementProgramCounter();
 		}
 		else if (instructionRegister == SAVE)
@@ -177,14 +177,14 @@ private:
 		else if (instructionRegister == GO_TO_X)
 		{
 			programCounter = memoryAddressRegister;
-			logRegister(" PC", programCounter);
+			logRegister("   PC", programCounter);
 		}
 		else if (instructionRegister == GO_TO)
 		{
 			if (toDecimalInt(accumulator))
 			{
 				programCounter = memoryAddressRegister;
-				logRegister(" PC", programCounter);
+				logRegister("   PC", programCounter);
 			}
 			else
 			{
@@ -249,7 +249,7 @@ private:
 			throw invalid_argument("invalid ALU operation");
 		}
 
-		logRegister(" AC", accumulator);
+		logRegister("   AC", accumulator);
 		incrementProgramCounter();
 	}
 

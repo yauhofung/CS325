@@ -41,6 +41,8 @@ private:
 		busPtr->setDataString(dataString);
 
 		file.close();
+
+		logPtr->recordBinaryString(" READ", busPtr->getDataString());
 	}
 
 	// writes data to file at address
@@ -54,6 +56,8 @@ private:
 		file << busPtr->getDataString();
 
 		file.close();
+
+		logPtr->recordBinaryString("WRITE", busPtr->getDataString());
 	}
 
 public:
